@@ -1,0 +1,15 @@
+.header {
+  @include flex($x: flex-end, $xGap: 1.5rem);
+  background-color: #1b72ce;
+  padding: 0 2rem;
+  height: 100%;
+  &-user {
+    color: #ffffff;
+    font-weight: bold;
+  }
+  &-logout {
+    cursor: pointer;
+    color: #ffffff;
+    font-weight: bold;
+  }
+}

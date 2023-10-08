@@ -1,0 +1,44 @@
+// flex通用样式
+@mixin flex(
+  $flex: flex,
+  $dir: row,
+  $x: center,
+  $y: center,
+  $wrap: nowrap,
+  $xGap: normal,
+  $yGap: normal
+) {
+  display: $flex;
+  flex-direction: $dir;
+  justify-content: $x;
+  align-items: $y;
+  flex-wrap: $wrap;
+  column-gap: $xGap;
+  row-gap: $yGap;
+}
+
+// 省略通用函数
+@mixin omit($maxR: 2) {
+  -webkit-line-clamp: $maxR;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  overflow: hidden;
+}
+
+// 全屏通用样式
+@mixin fullscreen() {
+  &:-webkit-full-screen {
+    @content;
+  }
+  &:-moz-full-screen {
+    @content;
+  }
+  &:-ms-fullscreen {
+    @content;
+  }
+  &:fullscreen {
+    @content;
+  }
+}

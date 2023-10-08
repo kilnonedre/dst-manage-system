@@ -1,0 +1,9 @@
+.layout {
+  &-header {
+    height: 60px;
+  }
+  &-body {
+    height: calc(100vh - 60px);
+    @include flex($x: stretch, $y: stretch);
+  }
+}

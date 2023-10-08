@@ -1,0 +1,22 @@
+.index {
+  width: 300px;
+  margin: 150px auto 0 auto;
+  text-align: center;
+  font-weight: bolder;
+  &-title {
+    font-size: 4rem;
+    line-height: 4rem;
+    color: #a3a3a3;
+  }
+  &-tip {
+    color: #676a6c;
+    font-size: 1rem;
+    line-height: 2rem;
+  }
+  &-password {
+    margin: 0.5rem 0;
+  }
+  &-button {
+    width: 100%;
+  }
+}
