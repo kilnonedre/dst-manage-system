@@ -184,12 +184,15 @@ const Home = () => {
         </div>
         <div className={styles['home-information-item']}>
           <div className={styles['home-information__title']}>服务器管理：</div>
-          <Select label="服务器" size="sm" onChange={serverChange}>
-            {serverList.map(server => (
-              <SelectItem key={server.value} value={server.value}>
-                {server.label}
-              </SelectItem>
-            ))}
+          <Select
+            items={serverList}
+            label="服务器"
+            size="sm"
+            onChange={serverChange}
+          >
+            {server => (
+              <SelectItem key={server.value}>{server.label}</SelectItem>
+            )}
           </Select>
           <Button
             className={styles['flex-shrink']}
@@ -201,7 +204,6 @@ const Home = () => {
           >
             {computed.text}
           </Button>
-          {/* <Button color="danger">关闭服务器</Button> */}
           {server !== 'all' && server !== '' ? (
             <Button color="secondary">打开控制台</Button>
           ) : null}
@@ -212,30 +214,24 @@ const Home = () => {
         </div>
         <div className={styles['home-information-item']}>
           <div className={styles['home-information__title']}>存档管理：</div>
-          <Select label="服务器" size="sm">
-            {serverList.map(server => (
-              <SelectItem key={server.value} value={server.value}>
-                {server.label}
-              </SelectItem>
-            ))}
+          <Select items={serverList} label="服务器" size="sm">
+            {server => (
+              <SelectItem key={server.value}>{server.label}</SelectItem>
+            )}
           </Select>
           <Button color="danger">删除存档</Button>
         </div>
         <div className={styles['home-information-item']}>
           <div className={styles['home-information__title']}>回档管理：</div>
-          <Select label="服务器" size="sm">
-            {serverList.map(server => (
-              <SelectItem key={server.value} value={server.value}>
-                {server.label}
-              </SelectItem>
-            ))}
+          <Select items={serverList} label="服务器" size="sm">
+            {server => (
+              <SelectItem key={server.value}>{server.label}</SelectItem>
+            )}
           </Select>
-          <Select label="回档天数" size="sm">
-            {serverList.map(server => (
-              <SelectItem key={server.value} value={server.value}>
-                {server.label}
-              </SelectItem>
-            ))}
+          <Select items={serverList} label="回档天数" size="sm">
+            {server => (
+              <SelectItem key={server.value}>{server.label}</SelectItem>
+            )}
           </Select>
           <Button color="primary">回档</Button>
         </div>
