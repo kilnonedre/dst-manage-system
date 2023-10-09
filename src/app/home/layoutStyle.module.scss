@@ -5,5 +5,8 @@
   &-body {
     height: calc(100vh - 60px);
     @include flex($x: stretch, $y: stretch);
+    &-children {
+      width: 100%;
+    }
   }
 }

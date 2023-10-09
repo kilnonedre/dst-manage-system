@@ -1,0 +1,34 @@
+.home {
+  width: 90%;
+  margin: 0 auto;
+  padding: 2rem 0;
+  @include flex($x: stretch, $y: stretch);
+  &-information {
+    width: 50%;
+    min-width: 500px;
+    line-height: 1em;
+    &-item {
+      font-size: 0.875rem;
+      white-space: nowrap;
+      margin: 0.55rem 0;
+      @include flex($x: stretch, $y: center, $xGap: 0.5rem);
+    }
+    &__title {
+      width: 115px;
+      flex-shrink: 0;
+      text-align: right;
+    }
+  }
+  &-resource {
+    width: 100%;
+    &-panel {
+      width: 300px;
+      aspect-ratio: 1/1;
+      margin: 0 auto;
+    }
+  }
+}
+
+.flex-shrink {
+  flex-shrink: 0;
+}

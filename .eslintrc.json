@@ -13,7 +13,7 @@
     "brace-style": 2,
     "comma-dangle": 0, // 禁用:和 prettier 冲突
     "object-curly-spacing": [2, "always"],
-    "complexity": ["error", { "max": 2 }],
+    "complexity": ["error", { "max": 10 }],
     "prefer-const": [
       "error",
       {
