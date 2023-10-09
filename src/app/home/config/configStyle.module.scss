@@ -1,0 +1,16 @@
+.config {
+  width: 90%;
+  margin: 0 auto;
+  padding: 2rem 0;
+  &-form {
+    width: 50%;
+    min-width: 500px;
+    &-body {
+      @include flex($x: stretch, $y: stretch, $dir: column, $yGap: 1rem);
+    }
+    &-footer {
+      margin-top: 1rem;
+      @include flex($x: flex-end, $y: stretch, $xGap: 1rem);
+    }
+  }
+}
