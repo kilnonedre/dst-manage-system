@@ -1,15 +1,38 @@
+'use client'
+
 import React from 'react'
 import styles from './menuStyle.module.scss'
+import { usePathname } from 'next/navigation'
+import Link from 'next/link'
 
-const menuList = ['控制台', '基本配置', '世界文件', '权限配置', '存档管理']
+const menuList = [
+  { mark: 'console', name: '控制台', href: '' },
+  { mark: 'config', name: '基本配置', href: 'config' },
+  { mark: 'file', name: '世界文件', href: 'file' },
+  { mark: 'purview', name: '权限配置', href: 'purview' },
+  { mark: 'archive', name: '存档管理', href: 'archive' },
+]
 
 const Menu = () => {
+  let pathname = usePathname().split('/').pop()
+
   return (
     <div className={styles['menu']}>
-      {menuList.map((menu, index) => {
+      {menuList.map(menu => {
+        if (pathname === 'home') {
+          pathname = ''
+        }
+        const isActive = pathname === menu.href
         return (
-          <div key={index} className={styles['menu-item']}>
-            <div className={styles['menu-item-main']}>{menu}</div>
+          <div key={menu.mark} className={styles['menu-item']}>
+            <Link
+              href={`/home/${menu.href}`}
+              className={`${styles['menu-item-main']} ${
+                isActive && styles['active']
+              }`}
+            >
+              {menu.name}
+            </Link>
           </div>
         )
       })}
