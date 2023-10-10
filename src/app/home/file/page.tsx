@@ -2,10 +2,10 @@
 
 import React from 'react'
 import styles from './fileStyle.module.scss'
-import { Textarea, Button } from '@nextui-org/react'
+import { Textarea, Button, Tabs, Tab } from '@nextui-org/react'
 import Upload from '@/components/upload'
 
-const navItemList = [
+const tabList = [
   { mark: 'ground', title: '地面文件' },
   { mark: 'groundMod', title: '地面MOD' },
   { mark: 'burrow', title: '地洞文件' },
@@ -27,15 +27,9 @@ const File = () => {
         </div>
       </div>
       <div className={styles['file-show']}>
-        <div className={styles['nav']}>
-          {navItemList.map(navItem => {
-            return (
-              <div className={styles['nav-item']} key={navItem.mark}>
-                {navItem.title}
-              </div>
-            )
-          })}
-        </div>
+        <Tabs radius="lg" aria-label="Tabs radius" items={tabList}>
+          {tab => <Tab key={tab.mark} title={tab.title} />}
+        </Tabs>
         <Textarea
           label="Description"
           labelPlacement="outside"

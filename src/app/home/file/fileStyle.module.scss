@@ -28,20 +28,3 @@
     }
   }
 }
-
-.nav {
-  @include flex($x: stretch, $y: stretch, $xGap: 0.5rem);
-  border-bottom: 1px solid #c0c4cc;
-  &-item {
-    cursor: pointer;
-    border: 1px solid #c0c4cc;
-    border-bottom: none;
-    font-size: 0.875rem;
-    padding: 0.1rem 0.5rem;
-    border-radius: 0.25rem 0.25rem 0 0;
-    background-color: #ffffff;
-    &:hover {
-      background-color: #cbcbcb;
-    }
-  }
-}
