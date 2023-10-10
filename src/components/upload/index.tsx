@@ -8,11 +8,13 @@ const Upload = () => {
   const fileRealEle = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
-    fileFakeEle.current &&
+    let ele: HTMLDivElement | null = null
+    if (fileFakeEle.current) {
       fileFakeEle.current.addEventListener('drop', handleDrop)
+      ele = fileFakeEle.current
+    }
     return () => {
-      fileFakeEle.current &&
-        fileFakeEle.current.removeEventListener('drop', handleDrop)
+      ele && ele.removeEventListener('drop', handleDrop)
     }
   })
 
