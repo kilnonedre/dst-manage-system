@@ -1,0 +1,23 @@
+.archive {
+  &__title {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  &-file {
+    margin-bottom: 1rem;
+    &-button {
+      @include flex($x: stretch, $y: stretch, $xGap: 1rem);
+    }
+  }
+  &-backup {
+    &-table {
+      padding: 0 0.5rem;
+    }
+    &__button {
+      @include flex($x: stretch, $y: stretch, $xGap: 0.5rem);
+    }
+    &-pagination {
+      margin: 0;
+    }
+  }
+}
