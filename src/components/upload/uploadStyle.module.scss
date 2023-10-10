@@ -1,0 +1,30 @@
+.upload {
+  &-main {
+    width: 20rem;
+    aspect-ratio: 2/1;
+    background-color: #ffffff;
+    border: 1px dashed #c0c4cc;
+    color: #c0c4cc;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-family: 'iconFont';
+    @include flex($dir: column);
+    &:hover {
+      border-color: #3c9afb;
+    }
+    &-icon {
+      font-weight: bolder;
+      font-size: 1.5rem;
+    }
+    &-title {
+      font-size: 0.875rem;
+      span {
+        color: #3c9afb;
+        padding-left: 0.5rem;
+      }
+    }
+  }
+  &-input {
+    display: none;
+  }
+}

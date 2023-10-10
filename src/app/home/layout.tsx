@@ -14,7 +14,9 @@ const RootLayout = ({ children }: types.ConfigLayout) => {
         <div className={styles['layout-body-menu']}>
           <Menu />
         </div>
-        <div className={styles['layout-body-children']}>{children}</div>
+        <div className={styles['layout-body-children']}>
+          <div className={styles['layout-body-children-panel']}>{children}</div>
+        </div>
       </div>
     </div>
   )

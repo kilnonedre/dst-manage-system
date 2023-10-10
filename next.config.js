@@ -25,7 +25,7 @@ const nextConfig = {
             options: {
               ...rule.options,
               //引入你的全局样式
-              additionalData: `@import '@/style/abstract/indexStyle.scss';`,
+              additionalData: `@import '@/style/indexStyle.scss';`,
             },
           }
         : rule
