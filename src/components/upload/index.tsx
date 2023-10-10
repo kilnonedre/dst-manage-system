@@ -8,28 +8,11 @@ const Upload = () => {
   const fileRealEle = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
-    if (fileFakeEle.current) {
-      fileFakeEle.current.addEventListener('dragover', handleClearDragDefault)
+    fileFakeEle.current &&
       fileFakeEle.current.addEventListener('drop', handleDrop)
-      fileFakeEle.current.addEventListener('dragenter', handleClearDragDefault)
-      fileFakeEle.current.addEventListener('dragleave', handleClearDragDefault)
-      return () => {
-        if (fileFakeEle.current) {
-          fileFakeEle.current.removeEventListener(
-            'dragover',
-            handleClearDragDefault
-          )
-          fileFakeEle.current.removeEventListener('drop', handleDrop)
-          fileFakeEle.current.removeEventListener(
-            'dragenter',
-            handleClearDragDefault
-          )
-          fileFakeEle.current.removeEventListener(
-            'dragleave',
-            handleClearDragDefault
-          )
-        }
-      }
+    return () => {
+      fileFakeEle.current &&
+        fileFakeEle.current.removeEventListener('drop', handleDrop)
     }
   })
 
@@ -65,6 +48,9 @@ const Upload = () => {
         ref={fileFakeEle}
         className={styles['upload-main']}
         onClick={handleClick}
+        onDragEnter={handleClearDragDefault}
+        onDragLeave={handleClearDragDefault}
+        onDragOver={handleClearDragDefault}
       >
         <p className={styles['upload-main-icon']}></p>
         <p className={styles['upload-main-title']}>
