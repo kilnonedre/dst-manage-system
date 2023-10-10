@@ -1,15 +1,7 @@
 import React from 'react'
 import styles from './menuStyle.module.scss'
 
-const menuList = [
-  '控制台',
-  '基本配置',
-  '世界文件',
-  '管理员配置',
-  '白名单配置',
-  '黑名单配置',
-  '存档管理',
-]
+const menuList = ['控制台', '基本配置', '世界文件', '权限配置', '存档管理']
 
 const Menu = () => {
   return (

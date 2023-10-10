@@ -1,0 +1,10 @@
+.purview {
+  width: 250px;
+  &-list {
+    @include flex($x: stretch, $y: stretch, $yGap: 0.5rem, $dir: column);
+    margin: 1rem 0;
+  }
+  &-button {
+    @include flex($x: flex-end, $y: stretch, $xGap: 0.5rem);
+  }
+}
