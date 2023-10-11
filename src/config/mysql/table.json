@@ -1,0 +1,24 @@
+[
+  {
+    "name": "admin_login",
+    "data": {
+      "id": "INT",
+      "email": "CHAR(255)",
+      "password": "CHAR(255)",
+      "create_time": "INT",
+      "update_time": "INT"
+    },
+    "primaryKey": "id"
+  },
+  {
+    "name": "user_login",
+    "data": {
+      "id": "INT",
+      "email": "CHAR(255)",
+      "password": "CHAR(255)",
+      "create_time": "INT",
+      "update_time": "INT"
+    },
+    "primaryKey": "id"
+  }
+]

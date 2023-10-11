@@ -12,8 +12,10 @@
   },
   "dependencies": {
     "@nextui-org/react": "^2.1.13",
+    "@types/mysql": "^2.15.22",
     "echarts": "^5.4.3",
     "framer-motion": "^10.16.4",
+    "mysql": "^2.18.1",
     "next": "13.5.4",
     "react": "^18",
     "react-dom": "^18",
