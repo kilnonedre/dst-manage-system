@@ -3,6 +3,7 @@
 import React from 'react'
 import styles from './archiveStyle.module.scss'
 import types from './archiveType.d'
+import mainTypes from '@/types/indexType.d'
 import {
   Table,
   TableHeader,
@@ -68,7 +69,7 @@ const Archive = () => {
             {backupManageList.map(backupManage => {
               return (
                 <Button
-                  color={backupManage.color as types.ConfigColor}
+                  color={backupManage.color as mainTypes.ConfigColor}
                   key={backupManage.mark}
                   size="sm"
                 >

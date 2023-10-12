@@ -1,5 +1,5 @@
 import { response } from '@/util/backend'
-import types from './databaseType.d'
+import types from './databaseType'
 import tableList from '@/config/mysql/table.json'
 import query from '@/config/mysql/db'
 
@@ -35,8 +35,8 @@ export const POST = async () => {
         return query(sql, [])
       })
     )
-    return response(200, 200, '')
+    return response(200, 200, true)
   } catch (error) {
-    return response(200, 400, '', (error as types.ConfigError).sqlMessage)
+    return response(200, 400, false, (error as types.ConfigError).sqlMessage)
   }
 }
