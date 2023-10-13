@@ -2,9 +2,11 @@
 
 import React, { useEffect, useRef, useState, useMemo } from 'react'
 import styles from './homeStyle.module.scss'
+import mainTypes from '@/types/iniType.d'
 import { Chip, Select, SelectItem, Button } from '@nextui-org/react'
 import * as echarts from 'echarts'
 import { deepClone } from '@/util/deepClone'
+import { getConfig } from '@/api'
 
 const serverList = [
   { label: '所有', value: 'all' },
@@ -33,6 +35,17 @@ const serverStatusObj = {
 const Home = () => {
   const cpuChartRef = useRef(null)
   const gpuChartRef = useRef(null)
+  const [config, setConfig] = useState<mainTypes.ConfigMainConfig | null>(null)
+
+  useEffect(() => {
+    updateConfig()
+  }, [])
+
+  const updateConfig = async () => {
+    const response = await getConfig()
+    const { data } = await response.json()
+    setConfig(data)
+  }
 
   useEffect(() => {
     const cpuChart = echarts.init(cpuChartRef.current)
@@ -146,11 +159,15 @@ const Home = () => {
       <div className={styles['home-information']}>
         <div className={styles['home-information-item']}>
           <div className={styles['home-information__title']}>服务器名称：</div>
-          <div className={styles['home-information-item']}>kilnonedre</div>
+          <div className={styles['home-information-item']}>
+            {config?.NETWORK.cluster_name}
+          </div>
         </div>
         <div className={styles['home-information-item']}>
           <div className={styles['home-information__title']}>最大玩家数：</div>
-          <div className={styles['home-information-item']}>6人</div>
+          <div className={styles['home-information-item']}>
+            {config?.GAMEPLAY.max_players} 人
+          </div>
         </div>
         <div className={styles['home-information-item']}>
           <div className={styles['home-information__title']}>
