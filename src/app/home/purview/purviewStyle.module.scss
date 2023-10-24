@@ -1,10 +1,14 @@
 .purview {
-  width: 250px;
-  &-list {
-    @include flex($x: stretch, $y: stretch, $yGap: 0.5rem, $dir: column);
-    margin: 1rem 0;
+  padding: 0 0.5rem;
+  &-header {
+    @include flex($xGap: 0.5rem);
+    margin-bottom: 1rem;
+    &-input {
+      width: 200px;
+    }
   }
-  &-button {
-    @include flex($x: flex-end, $y: stretch, $xGap: 0.5rem);
-  }
+}
+
+.icon {
+  @include flex($x: flex-start, $xGap: 0.75rem);
 }

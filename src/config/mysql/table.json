@@ -9,5 +9,16 @@
       "update_time": "INT"
     },
     "primaryKey": "id"
+  },
+  {
+    "name": "player",
+    "data": {
+      "id": "INT",
+      "klei_id": "CHAR(255)",
+      "purview": "CHAR(255)",
+      "create_time": "INT",
+      "update_time": "INT"
+    },
+    "primaryKey": "id"
   }
 ]
