@@ -27,8 +27,6 @@ const Upload = () => {
     handleClearDragDefault(e)
     const files = [...e.dataTransfer.files]
 
-    console.log(files[0])
-
     if (files && files.length) {
       ;(fileRealEle as any).onUpload(files)
     }
@@ -41,7 +39,6 @@ const Upload = () => {
 
   const test = () => {
     if (!fileRealEle.current || !fileRealEle.current.files) return
-    console.log(fileRealEle.current.files[0])
   }
 
   return (

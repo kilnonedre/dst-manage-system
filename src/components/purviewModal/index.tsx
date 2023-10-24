@@ -29,7 +29,6 @@ const PurviewModal = (props: types.ConfigProps) => {
   }, [props.player])
 
   const edit = async (callback: Function) => {
-    console.log(kleiId, purview)
     if (!kleiIdVerified(kleiId)) {
       setErrorMessage('请输入正确的科雷ID')
       return
