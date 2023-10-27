@@ -2,8 +2,10 @@
 
 import React, { useRef, useEffect } from 'react'
 import styles from './uploadStyle.module.scss'
+import types from './uploadType.d'
+import { analyzeFile } from '@/api'
 
-const Upload = () => {
+const Upload = (props: types.ConfigProps) => {
   const fileFakeEle = useRef<HTMLDivElement>(null)
   const fileRealEle = useRef<HTMLInputElement>(null)
 
@@ -26,9 +28,8 @@ const Upload = () => {
   const handleDrop = (e: any) => {
     handleClearDragDefault(e)
     const files = [...e.dataTransfer.files]
-
     if (files && files.length) {
-      ;(fileRealEle as any).onUpload(files)
+      upload(files[0])
     }
   }
 
@@ -37,8 +38,19 @@ const Upload = () => {
     fileRealEle.current.click()
   }
 
-  const test = () => {
+  const getFile = () => {
     if (!fileRealEle.current || !fileRealEle.current.files) return
+    console.log(fileRealEle.current.files)
+    upload(fileRealEle.current.files[0])
+  }
+
+  const upload = async (file: File) => {
+    const formData = new FormData()
+    formData.set('file', file)
+    const response = await analyzeFile(formData)
+    const { code, data } = await response.json()
+    if (code !== 200) return
+    props.updateData(data)
   }
 
   return (
@@ -60,7 +72,10 @@ const Upload = () => {
         className={styles['upload-input']}
         type="file"
         ref={fileRealEle}
-        onChange={test}
+        onClick={e => {
+          ;(e.target as any).value = null
+        }}
+        onChange={getFile}
       />
     </div>
   )

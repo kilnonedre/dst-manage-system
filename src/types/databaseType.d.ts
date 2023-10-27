@@ -14,8 +14,14 @@ interface ConfigPlayer {
   update_time: number
 }
 
-interface ConfigCount {
-  'COUNT(*)': number
+interface ConfigCluster {
+  id: number
+  master: string
+  masterMod: string
+  caves: string
+  cavesMod: string
+  create_time: number
+  update_time: number
 }
 
-export { ConfigUser, ConfigPlayer, ConfigCount }
+export { ConfigUser, ConfigPlayer, ConfigCluster }

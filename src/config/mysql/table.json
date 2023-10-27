@@ -20,5 +20,24 @@
       "update_time": "INT"
     },
     "primaryKey": "id"
+  },
+  {
+    "name": "cluster",
+    "data": {
+      "id": "INT",
+      "master": "TEXT",
+      "masterMod": "TEXT",
+      "caves": "TEXT",
+      "cavesMod": "TEXT",
+      "create_time": "INT",
+      "update_time": "INT"
+    },
+    "default": {
+      "master": "",
+      "masterMod": "",
+      "caves": "",
+      "cavesMod": ""
+    },
+    "primaryKey": "id"
   }
 ]

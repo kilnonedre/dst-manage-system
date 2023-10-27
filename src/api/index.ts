@@ -43,3 +43,16 @@ export const updatePlayer = (params: Object) =>
 // 删除玩家信息
 export const deletePlayer = (params: Object) =>
   Delete(splicePath('/players'), params)
+
+/* 世界文件 */
+
+// 解析文件
+export const analyzeFile = (params: Object) =>
+  Post(splicePath('/files'), params)
+
+// 获取世界信息
+export const getCluster = () => Post(splicePath('/clusters'))
+
+// 创建世界信息
+export const createCluster = (params: Object) =>
+  Post(splicePath('/clusters'), params)

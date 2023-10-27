@@ -1,3 +1,5 @@
+import { isFormData } from '@/util/isFormData'
+
 const joinPath = (url: string, route?: string | number) => {
   const path = `/${route}` ?? ''
   return `${url}${path}`
@@ -16,17 +18,23 @@ const Get = (url: string, params?: object, config?: object) => {
 }
 
 const Post = (url: string, params?: object, config?: object) => {
+  const body = (isFormData(params) ? params : JSON.stringify(params)) as
+    | FormData
+    | string
   return fetch(url, {
     method: 'POST',
-    body: JSON.stringify(params),
+    body,
     ...config,
   })
 }
 
 const Put = (url: string, params?: object, config?: object) => {
+  const body = (isFormData(params) ? params : JSON.stringify(params)) as
+    | FormData
+    | string
   return fetch(url, {
     method: 'PUT',
-    body: JSON.stringify(params),
+    body,
     ...config,
   })
 }

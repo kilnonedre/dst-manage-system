@@ -7,7 +7,7 @@ const mysqlAdminData = mysql.createPool({
   database: 'dst_manage_system',
 })
 
-const dbQuery = function (sql: string, values: Array<any>) {
+const dbQuery = function (sql: string, values?: Array<any>) {
   return new Promise((resolve, reject) => {
     mysqlAdminData.getConnection((err, connection) => {
       if (err) {
